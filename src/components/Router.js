@@ -7,17 +7,12 @@ const AppRouter = ({ isLoggedIn }) => {
   return (
     <Router>
       <Switch>
-        {isLoggedIn ? (
-          <>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-          </>
-        ) : (
-          <Route exact path="/">
-            <AuthPage />
-          </Route>
-        )}
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/login">
+          <AuthPage />
+        </Route>
       </Switch>
     </Router>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AppRouter from 'components/Router';
 import { authService } from 'fbase';
+import Header from './Header';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -17,7 +18,18 @@ function App() {
     });
   }, []);
 
-  return init ? <AppRouter isLoggedIn={isLoggedIn} /> : '불러오는중';
+  return (
+    <>
+      {init ? (
+        <>
+          <Header isLoggedIn={isLoggedIn} />
+          <AppRouter isLoggedIn={isLoggedIn} />
+        </>
+      ) : (
+        '불러오는중'
+      )}
+    </>
+  );
 }
 
 export default App;
