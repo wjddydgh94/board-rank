@@ -1,32 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HashRouter as Router, Link } from 'react-router-dom';
-import { authService } from 'fbase';
+import { authService, firebaseInstance } from 'fbase';
 
 const Header = ({ isLoggedIn }) => {
   const onLogOutClick = () => authService.signOut();
+  const onSocialClick = async (event) => {
+    const provider = new firebaseInstance.auth.GoogleAuthProvider();
+    const data = await authService.signInWithPopup(provider);
+  };
+
   return (
     <StyledHeader>
       <div className="inner">
         {isLoggedIn ? (
-          <Router>
+          <>
             <div className="hello-user">
               <span className="user-email">
-                <Link to="/profile">
-                  {/* {userObj.displayName ? userObj.displayName : userObj.email} */}
-                </Link>
+                <Router>
+                  <Link to="/profile">
+                    {/* {userObj.displayName ? userObj.displayName : userObj.email} */}
+                  </Link>
+                </Router>
               </span>
               님, 안녕하세요!
             </div>
-            <div className="logout" onClick={onLogOutClick}>
+            <button className="logout" onClick={onLogOutClick}>
               로그아웃
-            </div>
-          </Router>
+            </button>
+          </>
         ) : (
-          <Router>
-            <StyledLogLink to="/login">로그인</StyledLogLink>
-            <StyledAccountLink to="/account">회원가입</StyledAccountLink>
-          </Router>
+          <StyledLogInButton onClick={onSocialClick}>
+            구글 계정으로 로그인
+          </StyledLogInButton>
         )}
       </div>
     </StyledHeader>
@@ -48,7 +54,7 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    a {
+    button {
       font-size: 0.8rem;
       opacity: 0.8;
       &:hover {
@@ -83,10 +89,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledLogLink = styled(Link)`
-  color: #495057;
-`;
-const StyledAccountLink = styled(Link)`
+const StyledLogInButton = styled.button`
   color: #fff;
   background-color: #099268;
   padding: 10px;
