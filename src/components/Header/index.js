@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { HashRouter as Router, Link } from 'react-router-dom';
 import { authService, firebaseInstance } from 'fbase';
 
-const Header = ({ isLoggedIn }) => {
+const Header = ({ isLoggedIn, userObj }) => {
   const onLogOutClick = () => authService.signOut();
   const onSocialClick = async (event) => {
     const provider = new firebaseInstance.auth.GoogleAuthProvider();
@@ -19,7 +19,7 @@ const Header = ({ isLoggedIn }) => {
               <span className="user-email">
                 <Router>
                   <Link to="/profile">
-                    {/* {userObj.displayName ? userObj.displayName : userObj.email} */}
+                    {userObj.displayName ? userObj.displayName : userObj.email}
                   </Link>
                 </Router>
               </span>
