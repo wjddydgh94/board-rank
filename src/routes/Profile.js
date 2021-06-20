@@ -1,5 +1,8 @@
+import Profile from 'components/Profile';
 import React from 'react';
 
-const ProfilePage = () => <span>profile</span>;
+const ProfilePage = ({ userObj }) => {
+  return <Profile userObj={userObj} />;
+};
 
 export default ProfilePage;
