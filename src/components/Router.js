@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import AuthPage from '../routes/Auth';
 import HomePage from '../routes/Home';
 import ProfilePage from '../routes/Profile';
 
@@ -10,9 +9,6 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
       <Switch>
         <Route exact path="/">
           <HomePage />
-        </Route>
-        <Route exact path="/login">
-          <AuthPage />
         </Route>
         <Route exact path="/profile">
           <ProfilePage userObj={userObj} />
