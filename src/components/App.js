@@ -25,7 +25,7 @@ function App() {
       {init ? (
         <>
           <Header isLoggedIn={isLoggedIn} userObj={userObj} />
-          <AppRouter isLoggedIn={isLoggedIn} />
+          <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
         </>
       ) : (
         '불러오는중'
