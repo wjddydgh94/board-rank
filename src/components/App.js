@@ -26,9 +26,9 @@ function App() {
       {init ? (
         <>
           <Header isLoggedIn={isLoggedIn} userObj={userObj} />
-          <Layout>
+          <AppLayout>
             <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
-          </Layout>
+          </AppLayout>
         </>
       ) : (
         '불러오는중'
@@ -37,7 +37,7 @@ function App() {
   );
 }
 
-const Layout = styled.section`
+const AppLayout = styled.section`
   padding-top: 60px;
 `;
 

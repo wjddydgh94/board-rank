@@ -1,5 +1,6 @@
+import Home from 'components/Home';
 import React from 'react';
 
-const HomePage = () => <span>home</span>;
+const HomePage = () => <Home />;
 
 export default HomePage;
