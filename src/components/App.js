@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AppRouter from 'components/Router';
 import { authService } from 'fbase';
 import Header from './Header';
+import styled from 'styled-components';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -25,7 +26,9 @@ function App() {
       {init ? (
         <>
           <Header isLoggedIn={isLoggedIn} userObj={userObj} />
-          <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
+          <AppLayout>
+            <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
+          </AppLayout>
         </>
       ) : (
         '불러오는중'
@@ -33,5 +36,9 @@ function App() {
     </>
   );
 }
+
+const AppLayout = styled.section`
+  padding-top: 60px;
+`;
 
 export default App;

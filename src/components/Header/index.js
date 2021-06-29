@@ -47,7 +47,7 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 60px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 0px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #fff;
 
   .inner {
     height: 100%;
