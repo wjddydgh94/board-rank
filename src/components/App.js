@@ -38,7 +38,7 @@ function App() {
 }
 
 const AppLayout = styled.section`
-  padding-top: 60px;
+  padding-top: 70px;
 `;
 
 export default App;
