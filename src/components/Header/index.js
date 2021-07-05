@@ -12,26 +12,30 @@ const Header = ({ isLoggedIn, userObj }) => {
 
   return (
     <StyledHeader>
-      <div className="inner">
+      <div className="header-inner">
+        <Router className="logo">
+          <Link to="/">
+            <img src="/image/board_rank_logo.svg" />
+          </Link>
+        </Router>
         {isLoggedIn ? (
-          <>
-            <div className="hello-user">
-              <span className="user-email">
-                <Router>
-                  <Link to="/profile">
-                    {userObj.displayName ? userObj.displayName : userObj.email}
-                  </Link>
-                </Router>
-              </span>
-              님, 안녕하세요!
-            </div>
+          <div className="hello-user">
+            <span className="user-email">
+              HELLO,
+              <Router>
+                <Link to="/profile">
+                  {userObj.displayName ? userObj.displayName : userObj.email}
+                </Link>
+              </Router>
+            </span>
+            <div className="header-separate"></div>
             <button className="logout" onClick={onLogOutClick}>
-              로그아웃
+              logout
             </button>
-          </>
+          </div>
         ) : (
           <StyledLogInButton onClick={onSocialClick}>
-            구글 계정으로 로그인
+            login with Google
           </StyledLogInButton>
         )}
       </div>
@@ -45,15 +49,24 @@ const StyledHeader = styled.header`
   left: 0;
   z-index: 11;
   width: 100%;
-  height: 60px;
+  height: 70px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 0px;
-  background-color: #fff;
+  background-color: #2f2f2f;
 
-  .inner {
+  .header-inner {
+    width: 100%;
+    max-width: 1320px;
     height: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding: 0 113px 0 22px;
+
+    .logo {
+      width: 110px;
+    }
+
     button {
       font-size: 0.8rem;
       opacity: 0.8;
@@ -62,29 +75,35 @@ const StyledHeader = styled.header`
       }
     }
     .hello-user {
-      color: #495057;
-      font-size: 0.8rem;
-      margin-right: 15px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 100%;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
       .user-email {
+        margin-right: 35px;
         a {
-          color: #868e96;
-          font-size: 0.9rem;
-          text-decoration: underline;
+          font-weight: 900;
+          color: #ffffff;
           cursor: pointer;
+          margin-left: 5px;
         }
+      }
+      .header-separate {
+        width: 1px;
+        height: 16px;
+        background-color: #fff;
+        margin-right: 44px;
       }
     }
     .logout {
-      color: #fff;
-      background-color: #099268;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      opacity: 0.8;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 100%;
+      color: #ffffff;
       cursor: pointer;
-      &:hover {
-        opacity: 1;
-      }
+      background: none;
     }
   }
 `;
