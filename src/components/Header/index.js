@@ -68,11 +68,13 @@ const StyledHeader = styled.header`
     }
 
     button {
-      font-size: 0.8rem;
-      opacity: 0.8;
-      &:hover {
-        opacity: 1;
-      }
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 100%;
+      color: #ffffff;
+      cursor: pointer;
+      background: none;
+      padding: 0;
     }
     .hello-user {
       font-weight: 500;
@@ -104,6 +106,7 @@ const StyledHeader = styled.header`
       color: #ffffff;
       cursor: pointer;
       background: none;
+      padding: 0;
     }
   }
 `;
