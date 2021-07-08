@@ -37,9 +37,9 @@ const GameList = ({ genryName }) => {
                   {game.personnel}명 / {game.recommendation}명추천
                 </p>
               </div>
-              <div className="user-point">
+              <div className="user-point font-jost">
                 User point
-                <span>
+                <span className="font-jost">
                   {game.rating !== 0
                     ? parseFloat(Math.round(game.rating) / 10).toFixed(1)
                     : '평가 전'}
