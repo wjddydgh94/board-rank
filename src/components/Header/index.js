@@ -18,26 +18,35 @@ const Header = ({ isLoggedIn, userObj }) => {
             <img src="/image/board_rank_logo.svg" />
           </Link>
         </Router>
-        {isLoggedIn ? (
-          <div className="hello-user">
-            <span className="user-email">
-              HELLO,
-              <Router>
-                <Link to="/profile">
-                  {userObj.displayName ? userObj.displayName : userObj.email}
-                </Link>
-              </Router>
-            </span>
-            <div className="header-separate"></div>
-            <button className="logout" onClick={onLogOutClick}>
-              logout
-            </button>
-          </div>
-        ) : (
-          <StyledLogInButton onClick={onSocialClick}>
-            login with Google
-          </StyledLogInButton>
-        )}
+        <div className="hello-user">
+          {isLoggedIn ? (
+            <>
+              <span className="user-email">
+                HELLO,
+                <Router>
+                  <Link to="/profile">
+                    {userObj.displayName ? userObj.displayName : userObj.email}
+                  </Link>
+                </Router>
+              </span>
+              <div className="header-separate"></div>
+              <button className="logout" onClick={onLogOutClick}>
+                logout
+              </button>
+            </>
+          ) : (
+            <>
+              <span className="user-email">Welcome~!</span>
+              <div className="header-separate"></div>
+              <button className="login" onClick={onSocialClick}>
+                login with Google
+              </button>
+            </>
+            // <StyledLogInButton onClick={onSocialClick}>
+            //   login with Google
+            // </StyledLogInButton>
+          )}
+        </div>
       </div>
     </StyledHeader>
   );
@@ -99,7 +108,8 @@ const StyledHeader = styled.header`
         margin-right: 44px;
       }
     }
-    .logout {
+    .logout,
+    .login {
       font-weight: normal;
       font-size: 16px;
       line-height: 100%;
@@ -107,16 +117,12 @@ const StyledHeader = styled.header`
       cursor: pointer;
       background: none;
       padding: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
-`;
-
-const StyledLogInButton = styled.button`
-  color: #fff;
-  background-color: #099268;
-  padding: 10px;
-  border-radius: 5px;
-  margin-left: 15px;
 `;
 
 export default Header;
