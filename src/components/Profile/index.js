@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import defaultProfileImg from '../../img/17004.png';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import palette from 'styles/palette';
 
 const Profile = ({ userObj }) => {
   return (
@@ -71,7 +72,7 @@ const StyledMain = styled.main`
 `;
 
 const StyledLink = styled(Link)`
-  color: #fff;
+  color: ${palette.grey_1};
   background-color: #099268;
   padding: 10px;
   border-radius: 5px;

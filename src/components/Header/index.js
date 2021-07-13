@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { HashRouter as Router, Link } from 'react-router-dom';
 import { authService, firebaseInstance } from 'fbase';
+import palette from 'styles/palette';
 
 const Header = ({ isLoggedIn, userObj }) => {
   const onLogOutClick = () => authService.signOut();
@@ -42,9 +43,6 @@ const Header = ({ isLoggedIn, userObj }) => {
                 login with Google
               </button>
             </>
-            // <StyledLogInButton onClick={onSocialClick}>
-            //   login with Google
-            // </StyledLogInButton>
           )}
         </div>
       </div>
@@ -80,7 +78,7 @@ const StyledHeader = styled.header`
       font-weight: normal;
       font-size: 16px;
       line-height: 100%;
-      color: #ffffff;
+      color: ${palette.grey_1};
       cursor: pointer;
       background: none;
       padding: 0;
@@ -89,14 +87,14 @@ const StyledHeader = styled.header`
       font-weight: 500;
       font-size: 16px;
       line-height: 100%;
-      color: #ffffff;
+      color: ${palette.grey_1};
       display: flex;
       align-items: center;
       .user-email {
         margin-right: 35px;
         a {
           font-weight: 900;
-          color: #ffffff;
+          color: ${palette.grey_1};
           cursor: pointer;
           margin-left: 5px;
         }
@@ -104,7 +102,7 @@ const StyledHeader = styled.header`
       .header-separate {
         width: 1px;
         height: 16px;
-        background-color: #fff;
+        background-color: ${palette.grey_1};
         margin-right: 44px;
       }
     }
@@ -113,7 +111,7 @@ const StyledHeader = styled.header`
       font-weight: normal;
       font-size: 16px;
       line-height: 100%;
-      color: #ffffff;
+      color: ${palette.grey_1};
       cursor: pointer;
       background: none;
       padding: 0;

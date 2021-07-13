@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { storageService } from 'fbase';
 import { v4 as uuidv4 } from 'uuid';
 import defaultProfileImg from '../../img/17004.png';
+import palette from 'styles/palette';
 
 const EditProfile = ({ userObj }) => {
   const history = useHistory();
@@ -151,7 +152,7 @@ const StyledMain = styled.main`
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background-color: #fff;
+          background-color: ${palette.grey_1};
           padding: 0;
           cursor: pointer;
         }
@@ -187,7 +188,7 @@ const StyledMain = styled.main`
         padding: 0 15px;
         height: 40px;
         background: #ced4da;
-        color: #fff;
+        color: ${palette.grey_1};
         opacity: 0.7;
         font-weight: bold;
         outline: none;

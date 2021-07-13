@@ -1,6 +1,7 @@
 import { dbService } from 'fbase';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import palette from 'styles/palette';
 
 const GameList = ({ genryName }) => {
   const [gameList, setGameList] = useState([]);
@@ -63,7 +64,7 @@ const GameList = ({ genryName }) => {
 
 const StyledGameUl = styled.ul`
   li {
-    border-bottom: 1px solid #cfcfcf;
+    border-bottom: 1px solid ${palette.grey_5};
     padding: 60px 93px;
     display: flex;
     align-items: center;
@@ -88,14 +89,14 @@ const StyledGameUl = styled.ul`
             font-weight: 900;
             font-size: 26px;
             line-height: 100%;
-            color: #202020;
+            color: ${palette.grey_9};
             margin-right: 20px;
           }
           p {
             font-weight: 500;
             font-size: 16px;
             line-height: 100%;
-            color: #6a6a6a;
+            color: ${palette.grey_6};
           }
         }
         .user-point {
@@ -116,7 +117,7 @@ const StyledGameUl = styled.ul`
         font-weight: 500;
         font-size: 15px;
         line-height: 160%;
-        color: #3e3e3e;
+        color: ${palette.grey_8};
         padding: 0 10px;
         margin-bottom: 15px;
       }
@@ -125,7 +126,7 @@ const StyledGameUl = styled.ul`
         font-weight: normal;
         font-size: 15px;
         line-height: 160%;
-        color: #505050;
+        color: ${palette.grey_7};
       }
     }
   }
