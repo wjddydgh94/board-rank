@@ -1,6 +1,7 @@
 import { dbService } from 'fbase';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import palette from 'styles/palette';
 import GameList from './GameList';
 
 const Home = () => {
@@ -52,7 +53,7 @@ const StyledGenryUl = styled.ul`
   padding-bottom: 50px;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #cfcfcf;
+  border-bottom: 1px solid ${palette.grey_5};
 
   li {
     margin: 0 25px;
