@@ -3,7 +3,7 @@ import GameList from './GameList';
 import GenryList from './GenryList';
 
 const Home = () => {
-  const [genryName, setGenryName] = useState('추상');
+  const [genryName, setGenryName] = useState('테마');
 
   return (
     <section className="inner">

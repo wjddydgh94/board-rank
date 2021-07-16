@@ -7,14 +7,16 @@ const GameList = ({ genryName }) => {
   const [gameList, setGameList] = useState([]);
 
   const getGameList = async () => {
-    const gameLists = await dbService.collection('game-list').get();
+    const gameLists = await dbService
+      .collection('game-list')
+      .where('genry', 'array-contains-any', [genryName])
+      .get();
+
     gameLists.forEach((document) => {
-      if (document.data().genry.includes(genryName)) {
-        const gameListObject = {
-          ...document.data(),
-        };
-        setGameList((prev) => [gameListObject, ...prev]);
-      }
+      const gameListObject = {
+        ...document.data(),
+      };
+      setGameList((prev) => [gameListObject, ...prev]);
     });
   };
 
