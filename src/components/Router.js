@@ -1,7 +1,13 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+} from 'react-router-dom';
+import DetailPage from 'routes/Detail';
 import EditProfilePage from 'routes/EditProfile';
-import HomePage from '../routes/Home';
+import HomePage from 'routes/Home';
 import ProfilePage from '../routes/Profile';
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
@@ -16,6 +22,9 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
         </Route>
         <Route exact path="/edit-profile">
           <EditProfilePage userObj={userObj} />
+        </Route>
+        <Route path="/detail/:gameId">
+          <DetailPage />
         </Route>
       </Switch>
     </Router>

@@ -1,5 +1,6 @@
 import { dbService } from 'fbase';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import palette from 'styles/palette';
 
@@ -7,14 +8,16 @@ const GameList = ({ genryName }) => {
   const [gameList, setGameList] = useState([]);
 
   const getGameList = async () => {
-    const gameLists = await dbService.collection('game-list').get();
+    const gameLists = await dbService
+      .collection('game-list')
+      .where('genry', 'array-contains-any', [genryName])
+      .get();
+
     gameLists.forEach((document) => {
-      if (document.data().genry.includes(genryName)) {
-        const gameListObject = {
-          ...document.data(),
-        };
-        setGameList((prev) => [gameListObject, ...prev]);
-      }
+      const gameListObject = {
+        ...document.data(),
+      };
+      setGameList((prev) => [gameListObject, ...prev]);
     });
   };
 
@@ -33,7 +36,9 @@ const GameList = ({ genryName }) => {
           <div className="info-wrapper">
             <div className="title-box">
               <div className="title">
-                <h3>{game.name}</h3>
+                <h3>
+                  <Link to={`/detail/${game.id}`}>{game.name}</Link>
+                </h3>
                 <p>
                   {game.personnel}명 / {game.recommendation}명추천
                 </p>
@@ -86,11 +91,13 @@ const StyledGameUl = styled.ul`
           display: flex;
           align-items: center;
           h3 {
-            font-weight: 900;
-            font-size: 26px;
-            line-height: 100%;
-            color: ${palette.grey_9};
-            margin-right: 20px;
+            a {
+              font-weight: 900;
+              font-size: 26px;
+              line-height: 100%;
+              color: ${palette.grey_9};
+              margin-right: 20px;
+            }
           }
           p {
             font-weight: 500;
