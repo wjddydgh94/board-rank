@@ -1,5 +1,6 @@
 import { dbService } from 'fbase';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import palette from 'styles/palette';
 
@@ -35,7 +36,9 @@ const GameList = ({ genryName }) => {
           <div className="info-wrapper">
             <div className="title-box">
               <div className="title">
-                <h3>{game.name}</h3>
+                <h3>
+                  <Link to={`/detail/${game.id}`}>{game.name}</Link>
+                </h3>
                 <p>
                   {game.personnel}명 / {game.recommendation}명추천
                 </p>
@@ -88,11 +91,13 @@ const StyledGameUl = styled.ul`
           display: flex;
           align-items: center;
           h3 {
-            font-weight: 900;
-            font-size: 26px;
-            line-height: 100%;
-            color: ${palette.grey_9};
-            margin-right: 20px;
+            a {
+              font-weight: 900;
+              font-size: 26px;
+              line-height: 100%;
+              color: ${palette.grey_9};
+              margin-right: 20px;
+            }
           }
           p {
             font-weight: 500;
