@@ -24,7 +24,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
           <EditProfilePage userObj={userObj} />
         </Route>
         <Route path="/detail/:gameId">
-          <DetailPage />
+          <DetailPage userObj={userObj} />
         </Route>
       </Switch>
     </Router>
